@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safa P.S. | AI Engineer • LLM Systems & Multimodal AI</title>
+  <meta name="description" content="Portfolio of Safa P.S. - AI Engineer specializing in Production LLM Systems, Multilingual Conversational AI, and Self-Hosted Inference (Gemma, Qwen, Whisper, PyTorch, LoRA).">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            luxe: {
+              onyx: '#05060a',
+              amethyst: '#0d0a18',
+              card: 'rgba(18, 14, 30, 0.65)',
+              gold: '#f7c873',
+              amber: '#e0a96d',
+              violet: '#a855f7',
+              iris: '#9333ea',
+              rose: '#fb7185',
+              ruby: '#f43f5e'
+            }
+          },
+          fontFamily: {
+            heading: ['Space Grotesk', 'Plus Jakarta Sans', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Three.js 3D WebGL Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-[#05060a] bg-grain min-h-screen text-slate-100 relative selection:bg-amber-500/30 selection:text-amber-200">
+
+  <!-- Three.js 3D WebGL Particle Universe & Neural Torus Container -->
+  <div id="webgl-canvas-container"></div>
+
+  <!-- Ambient Luminous Glow Orbs -->
+  <div class="orb-violet top-[-100px] left-[-150px]"></div>
+  <div class="orb-gold top-[35%] right-[-150px]"></div>
+  <div class="orb-rose bottom-[15%] left-[-100px]"></div>
+
+  <!-- Toast Notification for Email Copy -->
+  <div id="copy-email-toast" class="fixed bottom-6 right-6 z-50 bg-[#120e22]/95 border border-amber-500/40 text-amber-200 text-xs font-mono px-4 py-3 rounded-xl shadow-2xl flex items-center gap-2.5 opacity-0 pointer-events-none transition-all duration-300 transform translate-y-2">
+    <i data-lucide="check-circle" class="w-4 h-4 text-amber-400"></i>
+    <span>Email copied to clipboard: <strong>safa.ps.workmail@gmail.com</strong></span>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="sticky top-0 z-40 backdrop-blur-xl bg-[#05060a]/75 border-b border-white/5 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-3 flex items-center justify-between">
+      
+      <!-- Brand Logo with 3D Rotating Wireframe Cube -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="cube-wrap">
+          <div class="cube">
+            <div class="cube-face cube-front"></div>
+            <div class="cube-face cube-back"></div>
+            <div class="cube-face cube-right"></div>
+            <div class="cube-face cube-left"></div>
+            <div class="cube-face cube-top"></div>
+            <div class="cube-face cube-bottom"></div>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-heading font-bold text-base tracking-tight text-white group-hover:text-amber-300 transition-colors">
+            Safa P.S.
+          </span>
+          <span class="font-mono text-[9px] uppercase tracking-widest text-purple-300/80">AI ENGINEER // 3D PORTFOLIO</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-7 text-xs font-mono text-slate-300">
+        <a href="#about" class="hover:text-amber-300 transition-colors">/ABOUT</a>
+        <a href="#architecture" class="hover:text-amber-300 transition-colors">/3D_ARCHITECTURE</a>
+        <a href="#experience" class="hover:text-amber-300 transition-colors">/EXPERIENCE</a>
+        <a href="#projects" class="hover:text-amber-300 transition-colors">/PROJECTS</a>
+        <a href="#skills" class="hover:text-amber-300 transition-colors">/SKILLS</a>
+        <a href="#interactive-chat" class="hover:text-amber-300 transition-colors flex items-center gap-1.5 text-purple-300">
+          <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+          /AI_PERSONA
+        </a>
+      </nav>
+
+      <!-- Action & Direct Social Links -->
+      <div class="hidden md:flex items-center gap-3">
+        <a href="https://github.com/fasafa" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white transition" title="GitHub">
+          <i data-lucide="github" class="w-4 h-4"></i>
+        </a>
+        <a href="https://linkedin.com/in/safa-p-s" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white transition" title="LinkedIn">
+          <i data-lucide="linkedin" class="w-4 h-4"></i>
+        </a>
+        <a href="#contact" class="btn-gold-3d !py-2 !px-4 !text-xs">
+          <span>CONNECT</span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-xl bg-white/5 text-slate-300">
+        <i data-lucide="menu" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#0c0818] border-b border-white/10 px-6 py-5 space-y-3 font-mono text-xs">
+      <a href="#about" class="block text-slate-300 hover:text-amber-300 py-1">/ABOUT</a>
+      <a href="#architecture" class="block text-slate-300 hover:text-amber-300 py-1">/3D_ARCHITECTURE</a>
+      <a href="#experience" class="block text-slate-300 hover:text-amber-300 py-1">/EXPERIENCE</a>
+      <a href="#projects" class="block text-slate-300 hover:text-amber-300 py-1">/PROJECTS</a>
+      <a href="#skills" class="block text-slate-300 hover:text-amber-300 py-1">/SKILLS</a>
+      <a href="#interactive-chat" class="block text-amber-300 py-1">/AI_PERSONA (INTERACTIVE)</a>
+      <a href="#contact" class="block text-slate-300 hover:text-amber-300 py-1">/CONNECT</a>
+    </div>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-28 py-12 relative z-10">
+
+    <!-- HERO SECTION -->
+    <section id="about" class="pt-6 sm:pt-14">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Hero Column: Copy & Proposition -->
+        <div class="lg:col-span-7 space-y-7">
+          
+          <!-- Availability Pill with Champagne Gold Glow -->
+          <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#150f26]/90 border border-amber-500/40 text-xs font-mono text-amber-300 shadow-lg shadow-amber-500/10">
+            <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+            <span>AVAILABLE FOR AI / LLM ROLES // GLOBAL & REMOTE</span>
+          </div>
+
+          <!-- Main Hero Headline -->
+          <div class="space-y-4">
+            <h1 class="text-4xl sm:text-6xl font-black tracking-tight font-heading leading-[1.08]">
+              Architecting <br/>
+              <span class="text-gradient-aurora">Self-Hosted LLMs</span> & <br/>
+              <span class="text-gradient-gold">Multimodal AI.</span>
+            </h1>
+            <p class="text-base sm:text-lg font-medium text-slate-300 leading-snug">
+              Multilingual Conversational Systems • GPU Inference (Ollama/RunPod) • LoRA/PEFT Optimization
+            </p>
+          </div>
+
+          <!-- Bio Description -->
+          <p class="text-slate-400 text-sm sm:text-base leading-relaxed max-w-2xl">
+            I turn open-weight models (<strong class="text-amber-200">Gemma 4 26B</strong>, <strong class="text-purple-300">Qwen2.5</strong>, <strong class="text-rose-300">Whisper Large-v3</strong>) into cost-effective, sub-second production services. Replaced cloud APIs with self-hosted GPU pipelines, fine-tuned VLMs for Arabic OCR with 4-bit quantization, and built resilient real-time voice architectures.
+          </p>
+
+          <!-- Core Call to Actions with 3D Depth -->
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="#architecture" class="btn-gold-3d">
+              <i data-lucide="layers" class="w-4 h-4"></i>
+              <span>Explore 3D Pipeline</span>
+            </a>
+            <button onclick="copyEmailToClipboard()" class="btn-glass-3d group">
+              <i data-lucide="copy" class="w-4 h-4 text-amber-300 group-hover:scale-110 transition-transform"></i>
+              <span>Copy Email</span>
+            </button>
+            <a href="https://github.com/fasafa" target="_blank" rel="noopener noreferrer" class="btn-glass-3d">
+              <i data-lucide="github" class="w-4 h-4"></i>
+              <span>GitHub</span>
+            </a>
+          </div>
+
+          <!-- Meta Bar -->
+          <div class="pt-5 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs font-mono text-slate-400 border-t border-white/5">
+            <div class="flex items-center gap-2">
+              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-amber-400"></i>
+              <span>Muscat, Oman • Calicut • Open to Relocation</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="mail" class="w-3.5 h-3.5 text-purple-400"></i>
+              <span>safa.ps.workmail@gmail.com</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Hero Column: Interactive 3D Photo Stage (Haute Arched Vault Silhouette) -->
+        <div class="lg:col-span-5 flex flex-col items-center justify-center">
+          <div class="profile-3d-stage relative w-[310px] sm:w-[340px]">
+            
+            <!-- 3D Orbit Halo Ring -->
+            <div class="orbit-halo-3d"></div>
+
+            <div class="profile-3d-card group">
+              <div class="profile-inner-frame">
+                
+                <!-- Main Portrait Image in Arched Editorial Aspect Ratio -->
+                <div class="relative w-full h-[400px] sm:h-[430px] overflow-hidden bg-[#07060f] flex items-center justify-center">
+                  <img 
+                    id="profile-img" 
+                    src="assets/profile.jpg" 
+                    alt="Safa P.S. - AI Engineer" 
+                    class="w-full h-full object-cover object-top transition duration-700 group-hover:scale-105"
+                    onerror="this.onerror=null; this.src='assets/avatar-placeholder.svg';"
+                  />
+
+                  <!-- Subtle Bottom Gradient without obscuring face -->
+                  <div class="absolute inset-x-0 bottom-0 p-4 pt-10 bg-gradient-to-t from-[#090614]/95 via-[#090614]/60 to-transparent flex items-center justify-between">
+                    <div>
+                      <p class="text-sm font-heading font-bold text-white tracking-tight">Safa P.S.</p>
+                      <p class="text-[11px] font-mono text-amber-300">AI & LLM Systems Engineer</p>
+                    </div>
+                    <span class="px-2.5 py-1 rounded-full bg-purple-500/20 text-purple-200 border border-purple-500/30 text-[10px] font-mono font-medium">
+                      Self-Hosted
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- 3D Floating Badge 1 (Top-Right) -->
+              <div class="badge-float-3d -top-4 -right-4 px-3.5 py-1.5 rounded-2xl bg-[#140e28]/95 border border-amber-500/40 text-amber-300 text-xs font-mono font-semibold flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                <span>Gemma 4 26B</span>
+              </div>
+
+              <!-- 3D Floating Badge 2 (Bottom-Left) -->
+              <div class="badge-float-3d -bottom-3 -left-3 px-3.5 py-1.5 rounded-2xl bg-[#140e28]/95 border border-purple-500/40 text-purple-200 text-xs font-mono font-semibold flex items-center gap-2" style="animation-delay: -2s;">
+                <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-400"></i>
+                <span>~5s Median GPU</span>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Interactive Voice Introduction Capsule -->
+          <div class="mt-6 flex flex-col items-center">
+            <button onclick="playVoiceIntro()" id="voice-intro-btn" class="voice-intro-capsule px-5 py-2.5 rounded-full flex items-center gap-3 text-xs font-mono text-amber-200 cursor-pointer group">
+              <div id="soundwave-bars" class="flex items-center gap-1">
+                <span class="sound-bar"></span>
+                <span class="sound-bar"></span>
+                <span class="sound-bar"></span>
+                <span class="sound-bar"></span>
+                <span class="sound-bar"></span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <i data-lucide="volume-2" class="w-4 h-4 text-amber-300 group-hover:scale-110 transition-transform"></i>
+                <span id="voice-btn-label">Listen to Safa's Welcome</span>
+              </div>
+            </button>
+            <p class="text-[10px] font-mono text-slate-400 mt-2">Soft Audio Introduction • Realtime Voice</p>
+          </div>
+
+          <!-- Hidden Audio Element for Custom Recording if attached -->
+          <audio id="safa-voice-audio" src="assets/safa-intro.mp3" preload="none"></audio>
+        </div>
+
+      </div>
+
+      <!-- 3D METRIC CARDS WITH TILT -->
+      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 tilt-card-wrapper">
+        
+        <div class="tilt-card p-6">
+          <div class="layer-depth-1">
+            <div class="flex items-center gap-2 text-amber-400 mb-2">
+              <i data-lucide="zap" class="w-4 h-4"></i>
+              <span class="text-[11px] font-mono text-slate-400 uppercase">GPU Latency</span>
+            </div>
+            <p class="text-3xl sm:text-4xl font-black font-heading text-white">~5s</p>
+            <p class="text-xs text-slate-400 mt-1">Median WhatsApp voice/text turnaround</p>
+          </div>
+        </div>
+
+        <div class="tilt-card p-6">
+          <div class="layer-depth-1">
+            <div class="flex items-center gap-2 text-purple-400 mb-2">
+              <i data-lucide="trending-up" class="w-4 h-4"></i>
+              <span class="text-[11px] font-mono text-slate-400 uppercase">Inference Speedup</span>
+            </div>
+            <p class="text-3xl sm:text-4xl font-black font-heading text-white">10–50×</p>
+            <p class="text-xs text-slate-400 mt-1">RunPod RTX A5000 vs CPU Ollama</p>
+          </div>
+        </div>
+
+        <div class="tilt-card p-6">
+          <div class="layer-depth-1">
+            <div class="flex items-center gap-2 text-rose-400 mb-2">
+              <i data-lucide="check-check" class="w-4 h-4"></i>
+              <span class="text-[11px] font-mono text-slate-400 uppercase">RAG Semantic Match</span>
+            </div>
+            <p class="text-3xl sm:text-4xl font-black font-heading text-white">95%</p>
+            <p class="text-xs text-slate-400 mt-1">Across 5,000+ Institutional FAQs</p>
+          </div>
+        </div>
+
+        <div class="tilt-card p-6">
+          <div class="layer-depth-1">
+            <div class="flex items-center gap-2 text-amber-300 mb-2">
+              <i data-lucide="pie-chart" class="w-4 h-4"></i>
+              <span class="text-[11px] font-mono text-slate-400 uppercase">Self-Host Break-Even</span>
+            </div>
+            <p class="text-3xl sm:text-4xl font-black font-heading text-white">~51k</p>
+            <p class="text-xs text-slate-400 mt-1">Messages/mo vs Proprietary API cost</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: 3D INTERACTIVE ARCHITECTURE PIPELINE -->
+    <section id="architecture" class="space-y-7 pt-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2 text-amber-400 text-xs font-mono uppercase tracking-wider mb-2">
+            <i data-lucide="layers" class="w-4 h-4"></i>
+            <span>3D PRODUCTION ARCHITECTURE</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-bold font-heading text-white">
+            Multimodal Voice & Text AI Pipeline
+          </h2>
+          <p class="text-sm text-slate-400 max-w-2xl mt-1">
+            Engineered at <strong class="text-amber-200">Bafar Labs</strong> for Ziya Gold. Replaced proprietary Gemini APIs with self-hosted Gemma 4 26B and Whisper Large-v3-Turbo on RunPod GPUs. Select a stage below:
+          </p>
+        </div>
+        <div class="text-xs font-mono text-amber-300 bg-amber-500/10 border border-amber-500/30 px-3.5 py-1.5 rounded-full inline-flex items-center gap-2 self-start md:self-auto">
+          <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+          <span>PRODUCTION LIVE // TRILINGUAL</span>
+        </div>
+      </div>
+
+      <!-- Pipeline Stages Bar with 3D Depth -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5 pt-2">
+        
+        <button onclick="selectArchStage('ingest')" data-stage="ingest" class="arch-node-3d text-left active">
+          <div class="text-[10px] font-mono text-amber-400 mb-1">STAGE 01</div>
+          <p class="text-xs font-bold text-white font-heading">Twilio Ingestion</p>
+          <span class="text-[11px] text-slate-400 block truncate">Voice • Images • Text</span>
+        </button>
+
+        <button onclick="selectArchStage('audio')" data-stage="audio" class="arch-node-3d text-left">
+          <div class="text-[10px] font-mono text-amber-400 mb-1">STAGE 02</div>
+          <p class="text-xs font-bold text-white font-heading">Whisper Turbo</p>
+          <span class="text-[11px] text-slate-400 block truncate">~800ms Transcription</span>
+        </button>
+
+        <button onclick="selectArchStage('inference')" data-stage="inference" class="arch-node-3d text-left">
+          <div class="text-[10px] font-mono text-amber-400 mb-1">STAGE 03</div>
+          <p class="text-xs font-bold text-white font-heading">Gemma 4 26B</p>
+          <span class="text-[11px] text-slate-400 block truncate">Ollama on RTX A5000</span>
+        </button>
+
+        <button onclick="selectArchStage('guardrails')" data-stage="guardrails" class="arch-node-3d text-left">
+          <div class="text-[10px] font-mono text-amber-400 mb-1">STAGE 04</div>
+          <p class="text-xs font-bold text-white font-heading">Guard & Tags</p>
+          <span class="text-[11px] text-slate-400 block truncate">Link Validation & Leads</span>
+        </button>
+
+        <button onclick="selectArchStage('crm')" data-stage="crm" class="arch-node-3d text-left col-span-2 sm:col-span-1">
+          <div class="text-[10px] font-mono text-amber-400 mb-1">STAGE 05</div>
+          <p class="text-xs font-bold text-white font-heading">Chatwoot CRM</p>
+          <span class="text-[11px] text-slate-400 block truncate">Cloudflare Tunnel Sync</span>
+        </button>
+
+      </div>
+
+      <!-- Stage Detail Display Card with 3D Depth -->
+      <div id="arch-display-panel" class="tilt-card p-6 sm:p-9">
+        <!-- Rendered dynamically by main.js -->
+      </div>
+    </section>
+
+    <!-- SECTION: INTERACTIVE AI ASSISTANT / TERMINAL CONSOLE -->
+    <section id="interactive-chat" class="space-y-7 pt-4">
+      <div>
+        <div class="flex items-center gap-2 text-amber-400 text-xs font-mono uppercase tracking-wider mb-2">
+          <i data-lucide="terminal" class="w-4 h-4"></i>
+          <span>AI PERSONA KERNEL</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold font-heading text-white">
+          Ask Safa's Simulated AI Persona
+        </h2>
+        <p class="text-sm text-slate-400 max-w-2xl mt-1">
+          Recruiters and hiring managers can query technical depth directly. Tap any topic chip below:
+        </p>
+      </div>
+
+      <!-- Terminal Window with 3D Border & Luxury Theme -->
+      <div class="tilt-card !p-0 overflow-hidden shadow-2xl border border-purple-500/20">
+        <div class="bg-[#110c24] px-5 py-3.5 border-b border-white/5 flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
+            <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
+            <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+            <span class="text-xs font-mono text-slate-400 ml-2">safa-ai-kernel // v3.0.0</span>
+          </div>
+          <div class="text-[11px] font-mono text-amber-300 flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+            <span>MODEL: GEMMA-4-26B (REASONING ACTIVE)</span>
+          </div>
+        </div>
+
+        <div class="p-5 sm:p-7 bg-[#070510]/95">
+          <!-- Terminal Quick Chips -->
+          <div class="mb-5">
+            <p class="text-xs font-mono text-purple-200/80 mb-2.5">Select a technical query prompt:</p>
+            <div class="flex flex-wrap gap-2.5">
+              <button onclick="askAssistant('bafar')" class="px-3.5 py-1.5 rounded-xl bg-purple-900/30 hover:bg-amber-900/30 border border-purple-500/30 hover:border-amber-500/50 text-xs font-mono text-amber-200 transition">
+                ⚡ What did you build at Bafar Labs?
+              </button>
+              <button onclick="askAssistant('bafarfoods')" class="px-3.5 py-1.5 rounded-xl bg-purple-900/30 hover:bg-emerald-900/30 border border-purple-500/30 hover:border-emerald-500/50 text-xs font-mono text-emerald-300 transition">
+                🌐 Bafar Foods (bafarfoods.com)
+              </button>
+              <button onclick="askAssistant('clinic')" class="px-3.5 py-1.5 rounded-xl bg-purple-900/30 hover:bg-purple-800/40 border border-purple-500/30 hover:border-purple-400/50 text-xs font-mono text-purple-200 transition">
+                🏥 Clinic Management ERP (React)
+              </button>
+              <button onclick="askAssistant('yolo')" class="px-3.5 py-1.5 rounded-xl bg-purple-900/30 hover:bg-amber-900/30 border border-purple-500/30 hover:border-amber-500/50 text-xs font-mono text-amber-200 transition">
+                🖐️ YOLO Sign Language (94% mAP)
+              </button>
+              <button onclick="askAssistant('optimization')" class="px-3.5 py-1.5 rounded-xl bg-purple-900/30 hover:bg-amber-900/30 border border-purple-500/30 hover:border-amber-500/50 text-xs font-mono text-amber-200 transition">
+                🔧 LoRA Fine-Tuning & Quantization
+              </button>
+              <button onclick="askAssistant('arabic')" class="px-3.5 py-1.5 rounded-xl bg-purple-900/30 hover:bg-amber-900/30 border border-purple-500/30 hover:border-amber-500/50 text-xs font-mono text-amber-200 transition">
+                🌍 Arabic & Multimodal AI Work
+              </button>
+              <button onclick="askAssistant('stack')" class="px-3.5 py-1.5 rounded-xl bg-purple-900/30 hover:bg-amber-900/30 border border-purple-500/30 hover:border-amber-500/50 text-xs font-mono text-amber-200 transition">
+                💻 Full Technical Stack
+              </button>
+              <button onclick="askAssistant('contact')" class="px-3.5 py-1.5 rounded-xl bg-purple-900/30 hover:bg-emerald-900/30 border border-purple-500/30 hover:border-emerald-500/50 text-xs font-mono text-emerald-300 transition">
+                📬 How to hire Safa?
+              </button>
+            </div>
+          </div>
+
+          <!-- Chat Output Container -->
+          <div id="terminal-chat-log" class="h-64 sm:h-72 overflow-y-auto pr-2 space-y-3 font-mono text-xs border border-white/5 rounded-2xl p-4 bg-black/50">
+            <div class="flex justify-start mb-3">
+              <div class="bg-[#120b24]/90 border border-purple-500/20 text-slate-200 text-xs px-4 py-3 rounded-2xl rounded-tl-sm max-w-[90%] leading-relaxed shadow-lg">
+                <div class="flex items-center gap-1.5 mb-1.5 pb-1 border-b border-white/5 text-[10px] font-mono text-amber-300">
+                  <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                  <span>Safa's Portfolio Kernel</span>
+                </div>
+                <div>
+                  Hello! I am Safa's AI persona. You can click any of the prompt chips above to review my production experience with self-hosted LLM inference, parameter-efficient fine-tuning (LoRA), and voice AI workflows.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: PROFESSIONAL EXPERIENCE -->
+    <section id="experience" class="space-y-8 pt-4">
+      <div>
+        <div class="flex items-center gap-2 text-amber-400 text-xs font-mono uppercase tracking-wider mb-2">
+          <i data-lucide="briefcase" class="w-4 h-4"></i>
+          <span>CAREER TIMELINE</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold font-heading text-white">
+          Work Experience
+        </h2>
+        <p class="text-sm text-slate-400 max-w-2xl mt-1">
+          Proven history of engineering and delivering production LLM systems with measurable business ROI.
+        </p>
+      </div>
+
+      <div class="space-y-7 tilt-card-wrapper">
+        
+        <!-- Role 1: Bafar Labs -->
+        <div class="tilt-card p-6 sm:p-8 relative overflow-hidden group">
+          <div class="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-amber-400 via-rose-400 to-purple-500"></div>
+          
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/5 pb-4 mb-5">
+            <div>
+              <div class="flex items-center gap-3">
+                <h3 class="text-2xl font-bold font-heading text-white">AI Engineer</h3>
+                <span class="text-xs font-mono px-3 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">Current Role</span>
+              </div>
+              <p class="text-sm text-purple-200/90 font-medium">Bafar Labs • Calicut</p>
+            </div>
+            <div class="text-xs font-mono text-slate-400">
+              May 2026 – Present
+            </div>
+          </div>
+
+          <div class="space-y-3.5 text-sm text-slate-300 leading-relaxed">
+            <div class="flex items-start gap-2.5">
+              <span class="text-amber-400 font-mono text-xs mt-1">▹</span>
+              <p>
+                <strong class="text-white">Self-Hosted Sales AI:</strong> Built a FastAPI service integrating Twilio WhatsApp with self-hosted <span class="text-amber-300 font-mono text-xs">Gemma 4 26B</span> and <span class="text-amber-300 font-mono text-xs">Whisper Large-v3-Turbo</span> to replace Gemini in Ziya Gold's sales assistant, handling text, voice notes, and photos.
+              </p>
+            </div>
+
+            <div class="flex items-start gap-2.5">
+              <span class="text-amber-400 font-mono text-xs mt-1">▹</span>
+              <p>
+                <strong class="text-white">Low-Latency GPU Inference:</strong> Deployed Gemma on a RunPod RTX A5000 GPU via Ollama, achieving <strong class="text-amber-300">~5s median replies</strong> across 27 live tests (10–50× faster than CPU inference).
+              </p>
+            </div>
+
+            <div class="flex items-start gap-2.5">
+              <span class="text-amber-400 font-mono text-xs mt-1">▹</span>
+              <p>
+                <strong class="text-white">Multilingual Memory & Tools:</strong> Reused production prompt, tool calling, and 16-message rolling memory with multilingual support (<strong class="text-white">English, Arabic, Malayalam</strong>) and lead-tag extraction.
+              </p>
+            </div>
+
+            <div class="flex items-start gap-2.5">
+              <span class="text-amber-400 font-mono text-xs mt-1">▹</span>
+              <p>
+                <strong class="text-white">Safety & Evaluation:</strong> Added HMAC webhook signature verification, link-validation guard, dry-run mode, and per-message metrics logging. Evaluated LLM quality on 31 test cases (Gemma 4 26B: 22/31 vs 11/31 for smaller model).
+              </p>
+            </div>
+
+            <div class="flex items-start gap-2.5">
+              <span class="text-amber-400 font-mono text-xs mt-1">▹</span>
+              <p>
+                <strong class="text-white">Commercial Web Platform:</strong> Engineered and launched the official production web application for <strong class="text-amber-200">Bafar Foods</strong> (<a href="https://bafarfoods.com/" target="_blank" rel="noopener noreferrer" class="text-amber-300 underline hover:text-amber-200">bafarfoods.com</a>) using Next.js App Router and Tailwind CSS, featuring automated WhatsApp ordering flows and an exclusive B2B wholesale customer portal.
+              </p>
+            </div>
+
+            <div class="flex items-start gap-2.5">
+              <span class="text-amber-400 font-mono text-xs mt-1">▹</span>
+              <p>
+                <strong class="text-white">Cost & Automation Platform:</strong> Calculated self-hosted GPU break-even at ~51–60k messages/month. Engineered n8n automation pipelines with Gemini/Gmail API and a full-stack AI video interview platform using Next.js, NestJS, LiveKit, and OpenAI Realtime API.
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-white/5 flex flex-wrap gap-2">
+            <span class="pill-3d">Gemma 4 26B</span>
+            <span class="pill-3d">Whisper Large-v3</span>
+            <span class="pill-3d">RunPod RTX A5000</span>
+            <span class="pill-3d">Ollama</span>
+            <span class="pill-3d">FastAPI</span>
+            <span class="pill-3d">Twilio WhatsApp</span>
+            <span class="pill-3d">n8n</span>
+            <span class="pill-3d">Chatwoot</span>
+            <span class="pill-3d">LiveKit</span>
+          </div>
+        </div>
+
+        <!-- Role 2: Banao Technologies -->
+        <div class="tilt-card p-6 sm:p-8 relative overflow-hidden group">
+          <div class="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-purple-400 to-indigo-500"></div>
+          
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/5 pb-4 mb-5">
+            <div>
+              <h3 class="text-2xl font-bold font-heading text-white">AI Developer Intern</h3>
+              <p class="text-sm text-purple-200/90 font-medium">Banao Technologies • Bangalore</p>
+            </div>
+            <div class="text-xs font-mono text-slate-400">
+              Nov 2025 – May 2026
+            </div>
+          </div>
+
+          <div class="space-y-3.5 text-sm text-slate-300 leading-relaxed">
+            <div class="flex items-start gap-2.5">
+              <span class="text-purple-400 font-mono text-xs mt-1">▹</span>
+              <p>
+                <strong class="text-white">Arabic TTS Pipeline:</strong> Built an Arabic Text-to-Speech pipeline using Python, Gemini, and gTTS, extending the application to Arabic-speaking users across MENA regions.
+              </p>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="text-purple-400 font-mono text-xs mt-1">▹</span>
+              <p>
+                <strong class="text-white">Interview Assessment Engine:</strong> Contributed to <em>Interview God</em>, an AI-powered interview assessment platform with speech-to-text and automated evaluation metrics.
+              </p>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="text-purple-400 font-mono text-xs mt-1">▹</span>
+              <p>
+                <strong class="text-white">Resilience & Fallback:</strong> Implemented LLM fallback circuits so application-level AI workflows stayed available when primary cloud AI services faced outages.
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-white/5 flex flex-wrap gap-2">
+            <span class="pill-3d">Python</span>
+            <span class="pill-3d">Gemini API</span>
+            <span class="pill-3d">gTTS</span>
+            <span class="pill-3d">Speech-to-Text</span>
+            <span class="pill-3d">Fallback Handlers</span>
+          </div>
+        </div>
+
+        <!-- Role 3: Gwing Software Technologies -->
+        <div class="tilt-card p-6 sm:p-8 relative overflow-hidden group">
+          <div class="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-rose-400 to-amber-500"></div>
+          
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/5 pb-4 mb-5">
+            <div>
+              <h3 class="text-2xl font-bold font-heading text-white">AI/ML Engineer Intern</h3>
+              <p class="text-sm text-purple-200/90 font-medium">Gwing Software Technologies Pvt Ltd • Hyderabad</p>
+            </div>
+            <div class="text-xs font-mono text-slate-400">
+              Oct 2025 – Nov 2025
+            </div>
+          </div>
+
+          <div class="space-y-3.5 text-sm text-slate-300 leading-relaxed">
+            <div class="flex items-start gap-2.5">
+              <span class="text-rose-400 font-mono text-xs mt-1">▹</span>
+              <p>
+                <strong class="text-white">Multimodal Conversational Bot:</strong> Developed a context-aware chatbot supporting both text and image inputs using LangChain and LlamaIndex.
+              </p>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="text-rose-400 font-mono text-xs mt-1">▹</span>
+              <p>
+                <strong class="text-white">Vision-Language Fusion:</strong> Integrated Qwen2-0.5B-Instruct and BLIP models for combined visual understanding and textual reasoning.
+              </p>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="text-rose-400 font-mono text-xs mt-1">▹</span>
+              <p>
+                <strong class="text-white">Local Inference:</strong> Built local inference APIs using Flask & Streamlit for low-latency, offline testing and internal stakeholder evaluation.
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-white/5 flex flex-wrap gap-2">
+            <span class="pill-3d">LangChain</span>
+            <span class="pill-3d">LlamaIndex</span>
+            <span class="pill-3d">Qwen2-0.5B</span>
+            <span class="pill-3d">BLIP</span>
+            <span class="pill-3d">Flask</span>
+            <span class="pill-3d">Streamlit</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: FEATURED PROJECTS WITH 3D TILT -->
+    <section id="projects" class="space-y-8 pt-4">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2 text-amber-400 text-xs font-mono uppercase tracking-wider mb-2">
+            <i data-lucide="folder-git-2" class="w-4 h-4"></i>
+            <span>ENGINEERING SHOWCASE</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-bold font-heading text-white">
+            Featured Projects
+          </h2>
+          <p class="text-sm text-slate-400 max-w-2xl mt-1">
+            Production-grade systems covering LoRA fine-tuning, RAG semantic search, vision-language models, and autonomous workflows.
+          </p>
+        </div>
+
+        <!-- Filter Buttons with 3D Styling -->
+        <div class="flex flex-wrap items-center gap-2">
+          <button onclick="filterProjects('all')" data-filter="all" class="project-filter-btn px-4 py-1.5 rounded-full text-xs font-mono font-medium bg-amber-500/20 text-amber-300 border border-amber-500/40 transition">
+            All (9)
+          </button>
+          <button onclick="filterProjects('rag')" data-filter="rag" class="project-filter-btn px-4 py-1.5 rounded-full text-xs font-mono font-medium text-slate-400 hover:text-white bg-slate-800/40 border border-white/5 transition">
+            RAG & Agents
+          </button>
+          <button onclick="filterProjects('peft')" data-filter="peft" class="project-filter-btn px-4 py-1.5 rounded-full text-xs font-mono font-medium text-slate-400 hover:text-white bg-slate-800/40 border border-white/5 transition">
+            LoRA & Fine-Tuning
+          </button>
+          <button onclick="filterProjects('vision')" data-filter="vision" class="project-filter-btn px-4 py-1.5 rounded-full text-xs font-mono font-medium text-slate-400 hover:text-white bg-slate-800/40 border border-white/5 transition">
+            Computer Vision & VLMs
+          </button>
+          <button onclick="filterProjects('fullstack')" data-filter="fullstack" class="project-filter-btn px-4 py-1.5 rounded-full text-xs font-mono font-medium text-slate-400 hover:text-white bg-slate-800/40 border border-white/5 transition">
+            Full-Stack & Web
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 tilt-card-wrapper">
+
+        <!-- Project 1: RAG Chatbot -->
+        <div class="project-card tilt-card p-6 flex flex-col justify-between" data-category="rag">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-mono uppercase bg-amber-500/10 text-amber-300 border border-amber-500/30">
+                Production RAG
+              </span>
+              <a href="https://github.com/fasafa" target="_blank" class="text-slate-400 hover:text-amber-300 transition">
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+              </a>
+            </div>
+            
+            <h3 class="text-xl font-bold font-heading text-white mb-2">
+              RAG-Based AI Chatbot for Educational Institution
+            </h3>
+            
+            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+              Scalable retrieval-augmented chatbot using LangChain and OpenAI/Gemini APIs. Achieved <strong class="text-amber-200">95% semantic retrieval accuracy</strong> across 5,000+ FAQs and reduced manual institutional support workload by 60% with optimized FAISS vector search.
+            </p>
+
+            <div class="rounded-xl bg-black/40 p-3.5 mb-4 border border-white/5 space-y-1 font-mono text-[11px] text-slate-400">
+              <div class="flex justify-between">
+                <span>Knowledgebase:</span>
+                <span class="text-white">5,000+ FAQs</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Accuracy:</span>
+                <span class="text-amber-300">95% Semantic Match</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Workload Cut:</span>
+                <span class="text-purple-300">-60% Support Tickets</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-white/5">
+            <span class="pill-3d">LangChain</span>
+            <span class="pill-3d">FAISS</span>
+            <span class="pill-3d">OpenAI</span>
+            <span class="pill-3d">Gemini</span>
+          </div>
+        </div>
+
+        <!-- Project 2: Self-Healing Sentiment Classifier -->
+        <div class="project-card tilt-card p-6 flex flex-col justify-between" data-category="peft">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-mono uppercase bg-purple-500/10 text-purple-300 border border-purple-500/30">
+                LoRA & LangGraph
+              </span>
+              <a href="https://github.com/fasafa" target="_blank" class="text-slate-400 hover:text-amber-300 transition">
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+              </a>
+            </div>
+            
+            <h3 class="text-xl font-bold font-heading text-white mb-2">
+              Self-Healing Sentiment Classifier (DistilBERT + LoRA)
+            </h3>
+            
+            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+              Fine-tuned DistilBERT using parameter-efficient LoRA for low-footprint sentiment classification. Implemented self-healing fallback logic using LangGraph to guarantee output reliability and optimized for CPU-only inference.
+            </p>
+
+            <div class="rounded-xl bg-black/40 p-3.5 mb-4 border border-white/5 space-y-1 font-mono text-[11px] text-slate-400">
+              <div class="flex justify-between">
+                <span>Base Model:</span>
+                <span class="text-white">DistilBERT</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Optimization:</span>
+                <span class="text-purple-300">LoRA / PEFT</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Orchestration:</span>
+                <span class="text-amber-300">LangGraph Fallback</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-white/5">
+            <span class="pill-3d">DistilBERT</span>
+            <span class="pill-3d">LoRA</span>
+            <span class="pill-3d">LangGraph</span>
+            <span class="pill-3d">PyTorch</span>
+          </div>
+        </div>
+
+        <!-- Project 3: Arabic Document OCR -->
+        <div class="project-card tilt-card p-6 flex flex-col justify-between" data-category="vision peft">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-mono uppercase bg-rose-500/10 text-rose-300 border border-rose-500/30">
+                Vision-Language VLM
+              </span>
+              <a href="https://github.com/fasafa" target="_blank" class="text-slate-400 hover:text-amber-300 transition">
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+              </a>
+            </div>
+            
+            <h3 class="text-xl font-bold font-heading text-white mb-2">
+              Arabic Document OCR via Qwen2.5-VL-7B
+            </h3>
+            
+            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+              Fine-tuned Qwen2.5-VL-7B-Instruct for challenging Arabic handwritten and printed documents using LoRA. Applied 4-bit quantization and gradient checkpointing for resource optimization, building a production-ready pipeline with PyTorch and Transformers.
+            </p>
+
+            <div class="rounded-xl bg-black/40 p-3.5 mb-4 border border-white/5 space-y-1 font-mono text-[11px] text-slate-400">
+              <div class="flex justify-between">
+                <span>Model:</span>
+                <span class="text-white">Qwen2.5-VL-7B</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Quantization:</span>
+                <span class="text-rose-300">4-bit BitsAndBytes</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Memory Opt:</span>
+                <span class="text-amber-300">Gradient Checkpointing</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-white/5">
+            <span class="pill-3d">Qwen2.5-VL</span>
+            <span class="pill-3d">BitsAndBytes</span>
+            <span class="pill-3d">PyTorch</span>
+            <span class="pill-3d">Transformers</span>
+          </div>
+        </div>
+
+        <!-- Project 4: Autonomous Outreach Engine -->
+        <div class="project-card tilt-card p-6 flex flex-col justify-between" data-category="rag">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-mono uppercase bg-amber-500/10 text-amber-300 border border-amber-500/30">
+                AI Automation & CRM
+              </span>
+              <a href="https://github.com/fasafa" target="_blank" class="text-slate-400 hover:text-amber-300 transition">
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+              </a>
+            </div>
+            
+            <h3 class="text-xl font-bold font-heading text-white mb-2">
+              Autonomous Enterprise Outreach & Follow-up Engine
+            </h3>
+            
+            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+              Engineered end-to-end automation pipelines using n8n, Gemini, Gmail API, and Google Sheets for company research, personalized pitch generation, and Day-3/5 follow-ups with automatic bounce and reply detection. Integrated self-hosted Chatwoot via Docker & Cloudflare Tunnel.
+            </p>
+
+            <div class="rounded-xl bg-black/40 p-3.5 mb-4 border border-white/5 space-y-1 font-mono text-[11px] text-slate-400">
+              <div class="flex justify-between">
+                <span>Workflow Core:</span>
+                <span class="text-white">n8n Engine</span>
+              </div>
+              <div class="flex justify-between">
+                <span>CRM Threading:</span>
+                <span class="text-purple-300">Chatwoot + Docker</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Safety:</span>
+                <span class="text-amber-300">Auto Stop on Reply</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-white/5">
+            <span class="pill-3d">n8n</span>
+            <span class="pill-3d">Gemini</span>
+            <span class="pill-3d">Chatwoot</span>
+            <span class="pill-3d">Cloudflare Tunnel</span>
+          </div>
+        </div>
+
+        <!-- Project 5: AI Video Interview Platform -->
+        <div class="project-card tilt-card p-6 flex flex-col justify-between" data-category="rag vision">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-mono uppercase bg-purple-500/10 text-purple-300 border border-purple-500/30">
+                Real-Time Voice AI
+              </span>
+              <a href="https://github.com/fasafa" target="_blank" class="text-slate-400 hover:text-amber-300 transition">
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+              </a>
+            </div>
+            
+            <h3 class="text-xl font-bold font-heading text-white mb-2">
+              Full-Stack AI Realtime Video Interview Platform
+            </h3>
+            
+            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+              Engineered real-time interview assessment using Next.js, NestJS, Python, LiveKit, and OpenAI Realtime API. Debugged critical production WebSocket connection issues to restore uninterrupted live candidate interview sessions.
+            </p>
+
+            <div class="rounded-xl bg-black/40 p-3.5 mb-4 border border-white/5 space-y-1 font-mono text-[11px] text-slate-400">
+              <div class="flex justify-between">
+                <span>Stream Protocol:</span>
+                <span class="text-white">LiveKit WebRTC</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Voice API:</span>
+                <span class="text-purple-300">OpenAI Realtime</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Stack:</span>
+                <span class="text-amber-300">Next.js + NestJS</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-white/5">
+            <span class="pill-3d">LiveKit</span>
+            <span class="pill-3d">OpenAI Realtime</span>
+            <span class="pill-3d">Next.js</span>
+            <span class="pill-3d">NestJS</span>
+          </div>
+        </div>
+
+        <!-- Project 6: Multimodal Qwen & BLIP Chatbot -->
+        <div class="project-card tilt-card p-6 flex flex-col justify-between" data-category="vision">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-mono uppercase bg-rose-500/10 text-rose-300 border border-rose-500/30">
+                Offline Multimodal
+              </span>
+              <a href="https://github.com/fasafa" target="_blank" class="text-slate-400 hover:text-amber-300 transition">
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+              </a>
+            </div>
+            
+            <h3 class="text-xl font-bold font-heading text-white mb-2">
+              Local Multimodal Conversational Engine
+            </h3>
+            
+            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+              Developed an offline-first conversational bot uniting Qwen2-0.5B-Instruct with BLIP image captioning. Implemented Flask and Streamlit interfaces to run low-latency, cross-functional demos locally without cloud egress costs.
+            </p>
+
+            <div class="rounded-xl bg-black/40 p-3.5 mb-4 border border-white/5 space-y-1 font-mono text-[11px] text-slate-400">
+              <div class="flex justify-between">
+                <span>NLP Model:</span>
+                <span class="text-white">Qwen2-0.5B</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Vision Model:</span>
+                <span class="text-rose-300">Salesforce BLIP</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Delivery:</span>
+                <span class="text-amber-300">Flask & Streamlit</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-white/5">
+            <span class="pill-3d">BLIP</span>
+            <span class="pill-3d">Qwen2</span>
+            <span class="pill-3d">LlamaIndex</span>
+            <span class="pill-3d">Streamlit</span>
+          </div>
+        </div>
+
+        <!-- Project 7: Sign Language Recognition using YOLO -->
+        <div class="project-card tilt-card p-6 flex flex-col justify-between" data-category="vision">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-mono uppercase bg-amber-500/10 text-amber-300 border border-amber-500/30">
+                Real-Time Computer Vision
+              </span>
+              <a href="https://github.com/fasafa" target="_blank" class="text-slate-400 hover:text-amber-300 transition">
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+              </a>
+            </div>
+            
+            <h3 class="text-xl font-bold font-heading text-white mb-2">
+              Sign Language Recognition using YOLO
+            </h3>
+            
+            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+              Fine-tuned custom YOLO object detection architecture achieving <strong class="text-amber-200">94% real-time gesture & sign detection accuracy</strong>. Evaluated performance using standard mAP (mean Average Precision) metrics and optimized training and inference pipelines for zero-latency webcam video streams.
+            </p>
+
+            <div class="rounded-xl bg-black/40 p-3.5 mb-4 border border-white/5 space-y-1 font-mono text-[11px] text-slate-400">
+              <div class="flex justify-between">
+                <span>Architecture:</span>
+                <span class="text-white">Fine-Tuned YOLO</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Accuracy:</span>
+                <span class="text-amber-300">94% Real-Time Detection</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Evaluation:</span>
+                <span class="text-purple-300">mAP Metric Benchmarks</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-white/5">
+            <span class="pill-3d">YOLO</span>
+            <span class="pill-3d">PyTorch</span>
+            <span class="pill-3d">OpenCV</span>
+            <span class="pill-3d">mAP Evaluation</span>
+            <span class="pill-3d">Real-Time CV</span>
+          </div>
+        </div>
+
+        <!-- Project 8: Bafar Foods Commercial Web & WhatsApp Commerce Platform -->
+        <div class="project-card tilt-card p-6 flex flex-col justify-between border-amber-500/30" data-category="fullstack">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-mono uppercase bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Live in Production</span>
+              </span>
+              <a href="https://bafarfoods.com/" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-full text-[11px] font-mono bg-amber-500/20 text-amber-300 border border-amber-500/40 hover:bg-amber-500/30 transition flex items-center gap-1">
+                <span>bafarfoods.com</span>
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+            </div>
+            
+            <h3 class="text-xl font-bold font-heading text-white mb-2">
+              Bafar Foods — Next.js Enterprise & WhatsApp Commerce
+            </h3>
+            
+            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+              Engineered and deployed the official production web application for <strong class="text-white">Bafar Foods</strong>. Architected with <strong class="text-amber-200">Next.js App Router</strong>, React, and Tailwind CSS. Features dynamic frozen food catalogs, custom pack size selection, instant <strong class="text-emerald-300">WhatsApp checkout flow</strong>, and a dedicated B2B portal for wholesale enterprise buyers.
+            </p>
+
+            <div class="rounded-xl bg-black/40 p-3.5 mb-4 border border-white/5 space-y-1 font-mono text-[11px] text-slate-400">
+              <div class="flex justify-between">
+                <span>Frontend & SSR:</span>
+                <span class="text-white">Next.js App Router</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Checkout Engine:</span>
+                <span class="text-emerald-300">Direct WhatsApp API Flow</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Wholesale System:</span>
+                <span class="text-amber-300">Dedicated B2B Portal</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-white/5">
+            <span class="pill-3d">Next.js</span>
+            <span class="pill-3d">React</span>
+            <span class="pill-3d">Tailwind CSS</span>
+            <span class="pill-3d">WhatsApp Commerce</span>
+            <span class="pill-3d">B2B Portal</span>
+          </div>
+        </div>
+
+        <!-- Project 9: Clinic Management Software (React & TypeScript) -->
+        <div class="project-card tilt-card p-6 flex flex-col justify-between border-purple-500/30" data-category="fullstack">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-mono uppercase bg-purple-500/10 text-purple-300 border border-purple-500/30 flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
+                <span>HealthTech ERP</span>
+              </span>
+              <a href="https://github.com/fasafa" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-full text-[11px] font-mono bg-purple-500/20 text-purple-300 border border-purple-500/40 hover:bg-purple-500/30 transition flex items-center gap-1">
+                <span>React 18</span>
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+            </div>
+            
+            <h3 class="text-xl font-bold font-heading text-white mb-2">
+              Clinic Management Software (React & TypeScript)
+            </h3>
+            
+            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+              Architected a full-featured clinical management ERP. Integrates end-to-end <strong class="text-white">patient appointment booking</strong>, multi-doctor queue tracking, medical <strong class="text-amber-200">pharmacy stock & inventory orders</strong> with low-stock alerts, digital Rx consultations, electronic health records (EMR/EHR), and automated patient billing.
+            </p>
+
+            <div class="rounded-xl bg-black/40 p-3.5 mb-4 border border-white/5 space-y-1 font-mono text-[11px] text-slate-400">
+              <div class="flex justify-between">
+                <span>Core Modules:</span>
+                <span class="text-white">Appointments • Orders • Stock</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Clinical Workflows:</span>
+                <span class="text-purple-300">Consultations • Digital Rx • EHR</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Analytics & UI:</span>
+                <span class="text-amber-300">Recharts • Material UI • Tailwind</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-white/5">
+            <span class="pill-3d">React 18</span>
+            <span class="pill-3d">TypeScript</span>
+            <span class="pill-3d">Vite</span>
+            <span class="pill-3d">Material UI</span>
+            <span class="pill-3d">Recharts</span>
+            <span class="pill-3d">Tailwind CSS</span>
+            <span class="pill-3d">React Router</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: TECHNICAL ARSENAL / SKILLS -->
+    <section id="skills" class="space-y-8 pt-4">
+      <div>
+        <div class="flex items-center gap-2 text-amber-400 text-xs font-mono uppercase tracking-wider mb-2">
+          <i data-lucide="cpu" class="w-4 h-4"></i>
+          <span>TECHNICAL ARSENAL</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold font-heading text-white">
+          Skills & Technologies
+        </h2>
+        <p class="text-sm text-slate-400 max-w-2xl mt-1">
+          Production-tested frameworks, cloud infrastructure, and models.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 tilt-card-wrapper">
+
+        <!-- Category 1: LLMs & GenAI -->
+        <div class="tilt-card p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="p-3 rounded-2xl bg-amber-500/10 text-amber-300 border border-amber-500/20">
+              <i data-lucide="sparkles" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold font-heading text-white">LLMs & GenAI</h3>
+              <p class="text-xs text-slate-400">Models & Inference Engines</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="pill-3d">Gemma 4 26B</span>
+            <span class="pill-3d">Qwen2.5</span>
+            <span class="pill-3d">Whisper Large-v3</span>
+            <span class="pill-3d">OpenAI GPT-4o</span>
+            <span class="pill-3d">Gemini 1.5</span>
+            <span class="pill-3d">Ollama</span>
+            <span class="pill-3d">Prompt Engineering</span>
+            <span class="pill-3d">Tool Calling</span>
+          </div>
+        </div>
+
+        <!-- Category 2: RAG & Agents -->
+        <div class="tilt-card p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="p-3 rounded-2xl bg-purple-500/10 text-purple-300 border border-purple-500/20">
+              <i data-lucide="git-branch" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold font-heading text-white">RAG & Agentic Workflows</h3>
+              <p class="text-xs text-slate-400">Context Orchestration</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="pill-3d">LangChain</span>
+            <span class="pill-3d">LangGraph</span>
+            <span class="pill-3d">LlamaIndex</span>
+            <span class="pill-3d">FAISS</span>
+            <span class="pill-3d">Vector Embeddings</span>
+            <span class="pill-3d">Prompt Caching</span>
+            <span class="pill-3d">Fallback Handlers</span>
+          </div>
+        </div>
+
+        <!-- Category 3: Model Optimization -->
+        <div class="tilt-card p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="p-3 rounded-2xl bg-rose-500/10 text-rose-300 border border-rose-500/20">
+              <i data-lucide="sliders" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold font-heading text-white">Fine-Tuning & Optimization</h3>
+              <p class="text-xs text-slate-400">PEFT, LoRA & Quantization</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="pill-3d">LoRA / PEFT</span>
+            <span class="pill-3d">4-bit Quantization</span>
+            <span class="pill-3d">BitsAndBytes</span>
+            <span class="pill-3d">Gradient Checkpoint</span>
+            <span class="pill-3d">PyTorch</span>
+            <span class="pill-3d">Hugging Face</span>
+            <span class="pill-3d">MLflow</span>
+          </div>
+        </div>
+
+        <!-- Category 4: Multimodal & Computer Vision -->
+        <div class="tilt-card p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="p-3 rounded-2xl bg-amber-500/10 text-amber-300 border border-amber-500/20">
+              <i data-lucide="eye" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold font-heading text-white">Multimodal & Vision</h3>
+              <p class="text-xs text-slate-400">VLMs, OCR & Audio</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="pill-3d">Vision-Language Models</span>
+            <span class="pill-3d">Arabic Document OCR</span>
+            <span class="pill-3d">BLIP</span>
+            <span class="pill-3d">YOLO</span>
+            <span class="pill-3d">OpenCV</span>
+            <span class="pill-3d">gTTS</span>
+            <span class="pill-3d">LiveKit WebRTC</span>
+          </div>
+        </div>
+
+        <!-- Category 5: Backend & APIs -->
+        <div class="tilt-card p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="p-3 rounded-2xl bg-purple-500/10 text-purple-300 border border-purple-500/20">
+              <i data-lucide="server" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold font-heading text-white">Programming & APIs</h3>
+              <p class="text-xs text-slate-400">Languages & Frameworks</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="pill-3d">Python</span>
+            <span class="pill-3d">FastAPI</span>
+            <span class="pill-3d">Flask</span>
+            <span class="pill-3d">REST APIs</span>
+            <span class="pill-3d">SQL</span>
+            <span class="pill-3d">Streamlit</span>
+            <span class="pill-3d">NestJS / Next.js</span>
+          </div>
+        </div>
+
+        <!-- Category 6: Cloud & DevOps -->
+        <div class="tilt-card p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="p-3 rounded-2xl bg-rose-500/10 text-rose-300 border border-rose-500/20">
+              <i data-lucide="cloud" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold font-heading text-white">Deployment & Infra</h3>
+              <p class="text-xs text-slate-400">Cloud GPUs & Integrations</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="pill-3d">Docker</span>
+            <span class="pill-3d">RunPod (RTX A5000)</span>
+            <span class="pill-3d">Cloudflare Tunnel</span>
+            <span class="pill-3d">Twilio WhatsApp API</span>
+            <span class="pill-3d">n8n Automation</span>
+            <span class="pill-3d">Chatwoot</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: EDUCATION & VERIFIED CREDENTIALS -->
+    <section id="education" class="space-y-8 pt-4">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2 text-amber-400 text-xs font-mono uppercase tracking-wider mb-2">
+            <i data-lucide="award" class="w-4 h-4"></i>
+            <span>VERIFIED ACADEMIC & INDUSTRY CREDENTIALS</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-bold font-heading text-white">
+            Certifications & Education
+          </h2>
+          <p class="text-sm text-slate-400 max-w-2xl mt-1">
+            Independently verified certifications across Machine Learning, Deep Learning, Cloud APIs, and Computer Science.
+          </p>
+        </div>
+        <div class="text-xs font-mono text-purple-300 bg-purple-500/10 border border-purple-500/30 px-3.5 py-1.5 rounded-full inline-flex items-center gap-2 self-start md:self-auto">
+          <i data-lucide="shield-check" class="w-4 h-4 text-amber-400"></i>
+          <span>100% VERIFIED & ACCREDITED</span>
+        </div>
+      </div>
+
+      <!-- Category 1: Flagship Accredited Industry Certifications -->
+      <div class="space-y-4">
+        <h3 class="text-xs font-mono uppercase text-amber-300 tracking-wider font-semibold">
+          ✦ Flagship Accredited Programs
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 tilt-card-wrapper">
+          
+          <!-- Illinois Institute of Technology -->
+          <div class="tilt-card p-6 flex flex-col justify-between border-amber-500/30">
+            <div>
+              <div class="flex items-start justify-between gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-white/5 p-1.5 border border-white/10 flex items-center justify-center overflow-hidden">
+                  <img src="assets/badges/illinois-tech.png" alt="Illinois Tech Badge" class="w-full h-full object-contain" />
+                </div>
+                <a href="https://www.credly.com/go/HETWB2V0" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-full text-[10px] font-mono bg-amber-500/10 text-amber-300 border border-amber-500/30 hover:bg-amber-500/20 transition flex items-center gap-1">
+                  <span>Credly Verify</span>
+                  <i data-lucide="external-link" class="w-3 h-3"></i>
+                </a>
+              </div>
+              <h4 class="text-lg font-bold font-heading text-white mb-1">Data Science & Machine Learning</h4>
+              <p class="text-xs text-amber-200/90 font-medium">Illinois Institute of Technology</p>
+              <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                Comprehensive accredited curriculum covering supervised/unsupervised machine learning, neural networks, feature engineering, and statistical modeling.
+              </p>
+            </div>
+            <div class="pt-4 mt-4 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-slate-400">
+              <span>Issued: Jun 2025</span>
+              <span class="text-amber-400 font-semibold">Credly: HETWB2V0</span>
+            </div>
+          </div>
+
+          <!-- IBM Coursera -->
+          <div class="tilt-card p-6 flex flex-col justify-between border-purple-500/30">
+            <div>
+              <div class="flex items-start justify-between gap-3 mb-4">
+                <div class="p-3 rounded-xl bg-purple-500/10 text-purple-300 border border-purple-500/20">
+                  <i data-lucide="binary" class="w-6 h-6"></i>
+                </div>
+                <span class="px-2.5 py-1 rounded-full text-[10px] font-mono bg-purple-500/10 text-purple-300 border border-purple-500/30">
+                  IBM Authorized
+                </span>
+              </div>
+              <h4 class="text-lg font-bold font-heading text-white mb-1">Python for Data Science, AI & Dev</h4>
+              <p class="text-xs text-purple-200/90 font-medium">IBM • Coursera</p>
+              <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                Authorized by IBM, authorized by Senior Data Scientist Dr. Joseph Santarcangelo. Focused on pandas, numpy, REST APIs, and core GenAI engineering.
+              </p>
+            </div>
+            <div class="pt-4 mt-4 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-slate-400">
+              <span>Issued: Jun 2024</span>
+              <span class="text-purple-300 font-semibold">IBM / Coursera</span>
+            </div>
+          </div>
+
+          <!-- Entri Elevate 8-Month Program -->
+          <div class="tilt-card p-6 flex flex-col justify-between border-rose-500/30">
+            <div>
+              <div class="flex items-start justify-between gap-3 mb-4">
+                <div class="p-3 rounded-xl bg-rose-500/10 text-rose-300 border border-rose-500/20">
+                  <i data-lucide="cpu" class="w-6 h-6"></i>
+                </div>
+                <span class="px-2.5 py-1 rounded-full text-[10px] font-mono bg-rose-500/10 text-rose-300 border border-rose-500/30">
+                  Capstone Complete
+                </span>
+              </div>
+              <h4 class="text-lg font-bold font-heading text-white mb-1">8-Month Data Science & ML Program</h4>
+              <p class="text-xs text-rose-200/90 font-medium">Entri Elevate Program</p>
+              <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                Rigorous 8-month hands-on engineering track culminating in a live Capstone project, end-to-end model deployments, and real-world evaluation pipelines.
+              </p>
+            </div>
+            <div class="pt-4 mt-4 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-slate-400">
+              <span>Completed: Apr 2025</span>
+              <span class="text-rose-300 font-semibold">ID: NKGGSJ-SWYV</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Category 2: Specialized Deep Learning, Machine Learning & National AI Badges -->
+      <div class="space-y-4 pt-4">
+        <h3 class="text-xs font-mono uppercase text-purple-300 tracking-wider font-semibold">
+          ✦ Deep Learning, Machine Learning & National AI Recognition
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-5 tilt-card-wrapper">
+          
+          <!-- Deep Learning (Simplilearn) -->
+          <div class="tilt-card p-5 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="p-2 rounded-lg bg-amber-500/10 text-amber-300 border border-amber-500/20">
+                  <i data-lucide="network" class="w-4 h-4"></i>
+                </span>
+                <span class="text-[10px] font-mono text-slate-400">Code: 8498926</span>
+              </div>
+              <h4 class="text-base font-bold font-heading text-white mb-1">Deep Learning</h4>
+              <p class="text-xs text-purple-300">Simplilearn</p>
+              <p class="text-[11px] text-slate-400 mt-2">
+                Neural network foundations, activation architectures, backpropagation, and CNNs.
+              </p>
+            </div>
+            <div class="pt-3 mt-3 border-t border-white/5 text-[10px] font-mono text-slate-400 flex justify-between">
+              <span>Issued: Jun 2025</span>
+              <span class="text-amber-400 font-semibold">Verified</span>
+            </div>
+          </div>
+
+          <!-- Machine Learning (Simplilearn) -->
+          <div class="tilt-card p-5 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="p-2 rounded-lg bg-purple-500/10 text-purple-300 border border-purple-500/20">
+                  <i data-lucide="git-merge" class="w-4 h-4"></i>
+                </span>
+                <span class="text-[10px] font-mono text-slate-400">Code: 8140087</span>
+              </div>
+              <h4 class="text-base font-bold font-heading text-white mb-1">Machine Learning</h4>
+              <p class="text-xs text-purple-300">Simplilearn</p>
+              <p class="text-[11px] text-slate-400 mt-2">
+                Supervised & unsupervised algorithms, gradient descent, clustering, and model validation.
+              </p>
+            </div>
+            <div class="pt-3 mt-3 border-t border-white/5 text-[10px] font-mono text-slate-400 flex justify-between">
+              <span>Issued: Apr 2025</span>
+              <span class="text-purple-300 font-semibold">Verified</span>
+            </div>
+          </div>
+
+          <!-- Government of India AI Appreciate -->
+          <div class="tilt-card p-5 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <div class="w-9 h-9 rounded-lg bg-white/5 p-1 border border-white/10 flex items-center justify-center overflow-hidden">
+                  <img src="assets/badges/ai-appreciate.png" alt="AI Appreciate Badge" class="w-full h-full object-contain" />
+                </div>
+                <span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">MeitY Certified</span>
+              </div>
+              <h4 class="text-base font-bold font-heading text-white mb-1">AI For All (Appreciate)</h4>
+              <p class="text-xs text-emerald-300">Digital India • Govt. of India</p>
+              <p class="text-[11px] text-slate-400 mt-2">
+                National Artificial Intelligence competency badge in practical AI paradigms and applications.
+              </p>
+            </div>
+            <div class="pt-3 mt-3 border-t border-white/5 text-[10px] font-mono text-slate-400 flex justify-between">
+              <span>National Initiative</span>
+              <span class="text-emerald-400 font-semibold">Verified Badge</span>
+            </div>
+          </div>
+
+          <!-- Government of India AI Aware -->
+          <div class="tilt-card p-5 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <div class="w-9 h-9 rounded-lg bg-white/5 p-1 border border-white/10 flex items-center justify-center overflow-hidden">
+                  <img src="assets/badges/ai-aware.png" alt="AI Aware Badge" class="w-full h-full object-contain" />
+                </div>
+                <span class="text-[10px] font-mono text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded-full border border-cyan-500/20">MeitY Certified</span>
+              </div>
+              <h4 class="text-base font-bold font-heading text-white mb-1">AI For All (Aware)</h4>
+              <p class="text-xs text-cyan-300">Digital India • Govt. of India</p>
+              <p class="text-[11px] text-slate-400 mt-2">
+                National Artificial Intelligence awareness and principles credential under Digital India.
+              </p>
+            </div>
+            <div class="pt-3 mt-3 border-t border-white/5 text-[10px] font-mono text-slate-400 flex justify-between">
+              <span>National Initiative</span>
+              <span class="text-cyan-400 font-semibold">Verified Badge</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Category 3: Data Engineering, Skills & Experience Credentials -->
+      <div class="space-y-4 pt-4">
+        <h3 class="text-xs font-mono uppercase text-rose-300 tracking-wider font-semibold">
+          ✦ Core Data Engineering, Internship & University Education
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-5 tilt-card-wrapper">
+          
+          <!-- GWING Internship Experience -->
+          <div class="tilt-card p-5 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="p-2 rounded-lg bg-rose-500/10 text-rose-300 border border-rose-500/20">
+                  <i data-lucide="briefcase" class="w-4 h-4"></i>
+                </span>
+                <span class="text-[10px] font-mono text-slate-400">ID: GWING508291</span>
+              </div>
+              <h4 class="text-base font-bold font-heading text-white mb-1">AI/ML Engineer Internship</h4>
+              <p class="text-xs text-rose-300">GWING Software Technologies</p>
+              <p class="text-[11px] text-slate-400 mt-2">
+                Official completion of production AI/ML internship engineering context-aware multimodal systems.
+              </p>
+            </div>
+            <div class="pt-3 mt-3 border-t border-white/5 text-[10px] font-mono text-slate-400 flex justify-between">
+              <span>Oct – Nov 2025</span>
+              <span class="text-rose-400 font-semibold">Industry Exp</span>
+            </div>
+          </div>
+
+          <!-- Python Libraries for Data Science -->
+          <div class="tilt-card p-5 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="p-2 rounded-lg bg-amber-500/10 text-amber-300 border border-amber-500/20">
+                  <i data-lucide="code-2" class="w-4 h-4"></i>
+                </span>
+                <span class="text-[10px] font-mono text-slate-400">Code: 4887442</span>
+              </div>
+              <h4 class="text-base font-bold font-heading text-white mb-1">Python Libraries for DS</h4>
+              <p class="text-xs text-amber-200">Simplilearn</p>
+              <p class="text-[11px] text-slate-400 mt-2">
+                High-performance vectorized computing with NumPy, Pandas dataframe operations, and data pipelines.
+              </p>
+            </div>
+            <div class="pt-3 mt-3 border-t border-white/5 text-[10px] font-mono text-slate-400 flex justify-between">
+              <span>Feb 2024</span>
+              <span class="text-amber-400 font-semibold">Verified</span>
+            </div>
+          </div>
+
+          <!-- 75-Day Coding Challenge on LinkedIn -->
+          <div class="tilt-card p-5 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="p-2 rounded-lg bg-purple-500/10 text-purple-300 border border-purple-500/20">
+                  <i data-lucide="terminal" class="w-4 h-4"></i>
+                </span>
+                <span class="text-[10px] font-mono text-purple-300 bg-purple-500/10 px-2 py-0.5 rounded-full border border-purple-500/20">Consistency</span>
+              </div>
+              <h4 class="text-base font-bold font-heading text-white mb-1">75-Day Coding Challenge</h4>
+              <p class="text-xs text-purple-300">LinkedIn Community</p>
+              <p class="text-[11px] text-slate-400 mt-2">
+                Demonstrated daily technical rigor solving complex algorithmic, data science, and ML challenges.
+              </p>
+            </div>
+            <div class="pt-3 mt-3 border-t border-white/5 text-[10px] font-mono text-slate-400 flex justify-between">
+              <span>75 Consecutive Days</span>
+              <span class="text-purple-300 font-semibold">Awarded</span>
+            </div>
+          </div>
+
+          <!-- University Degree -->
+          <div class="tilt-card p-5 flex flex-col justify-between border-amber-500/30">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="p-2 rounded-lg bg-amber-500/10 text-amber-300 border border-amber-500/20">
+                  <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+                </span>
+                <span class="text-[10px] font-mono text-amber-300 bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">Bachelor's Degree</span>
+              </div>
+              <h4 class="text-base font-bold font-heading text-white mb-1">B.Sc. Information Technology</h4>
+              <p class="text-xs text-amber-200">Mahatma Gandhi University</p>
+              <p class="text-[11px] text-slate-400 mt-2">
+                Comprehensive degree in computer systems, algorithms, databases, object-oriented programming, and software engineering.
+              </p>
+            </div>
+            <div class="pt-3 mt-3 border-t border-white/5 text-[10px] font-mono text-slate-400 flex justify-between">
+              <span>2016 – 2019</span>
+              <span class="text-amber-400 font-semibold">Kerala, India</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- SECTION: CONTACT & CONNECT -->
+    <section id="contact" class="pt-8 pb-12">
+      <div class="tilt-card p-8 sm:p-14 relative overflow-hidden border border-amber-500/30">
+        
+        <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-purple-600/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-3xl space-y-7">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-mono">
+            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+            OPEN FOR IMMEDIATE OPPORTUNITIES
+          </div>
+
+          <h2 class="text-3xl sm:text-5xl font-black font-heading text-white leading-tight">
+            Let's build scalable <span class="text-gradient-aurora">AI systems together.</span>
+          </h2>
+
+          <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+            Whether you need to self-host and fine-tune open-weight LLMs, build real-time voice and multimodal pipelines, or scale RAG workflows, I'm ready to bring production rigor to your team.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            
+            <div class="p-4 rounded-2xl bg-[#090714] border border-white/10 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <i data-lucide="mail" class="w-5 h-5 text-amber-400"></i>
+                <div>
+                  <p class="text-[10px] font-mono text-slate-400">WORK EMAIL</p>
+                  <p class="text-xs font-medium text-white select-all">safa.ps.workmail@gmail.com</p>
+                </div>
+              </div>
+              <button onclick="copyEmailToClipboard()" class="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-amber-300 transition" title="Copy Email">
+                <i data-lucide="copy" class="w-4 h-4"></i>
+              </button>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-[#090714] border border-white/10 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <i data-lucide="phone" class="w-5 h-5 text-purple-400"></i>
+                <div>
+                  <p class="text-[10px] font-mono text-slate-400">PHONE / WHATSAPP</p>
+                  <p class="text-xs font-medium text-white">+968 91858109 / +91 7012401421</p>
+                </div>
+              </div>
+              <a href="https://wa.me/96891858109" target="_blank" class="p-2 rounded-xl bg-purple-500/20 text-purple-200 hover:bg-purple-500/30 transition" title="WhatsApp Chat">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+              </a>
+            </div>
+
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="mailto:safa.ps.workmail@gmail.com" class="btn-gold-3d">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              <span>Send Direct Email</span>
+            </a>
+            <a href="https://linkedin.com/in/safa-p-s" target="_blank" rel="noopener noreferrer" class="btn-glass-3d">
+              <i data-lucide="linkedin" class="w-4 h-4"></i>
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/fasafa" target="_blank" rel="noopener noreferrer" class="btn-glass-3d">
+              <i data-lucide="github" class="w-4 h-4"></i>
+              <span>GitHub Repos</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/5 bg-[#040308] py-8 text-xs font-mono text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+        <span>Safa P.S. // 3D AI Engineer Portfolio</span>
+      </div>
+      <div>
+        Designed with Three.js WebGL & 3D Tilt Perspective • Muscat, Oman
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>
